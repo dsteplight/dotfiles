@@ -14,14 +14,17 @@ DMGCOUNT="$(ls -1 ~/Downloads/*.dmg | wc -l)"
 ZIPCOUNT="$(ls -1 ~/Downloads/*.zip | wc -l)"
 PDFCOUNT="$(ls -1 ~/Downloads/*.pdf | wc -l)"
 GIFCOUNT="$(ls -1 ~/Downloads/*.gif | wc -l)"
-JPGCOUNT="$(ls -1 ~/Downloads/*.jpg | wc -l)"
+JPEGCOUNT="$(ls -1 ~/Downloads/*.jpeg | wc -l)"
 XLSXCOUNT="$(ls -1 ~/Downloads/*.xlsx | wc -l)"
+XLSCOUNT="$(ls -1 ~/Downloads/*.xls | wc -l)"
 PPTCOUNT="$(ls -1 ~/Downloads/*.ppt | wc -l)"
 PPTXCOUNT="$(ls -1 ~/Downloads/*.pptx | wc -l)"
 DOCXCOUNT="$(ls -1 ~/Downloads/*.docx | wc -l)"
 DOCCOUNT="$(ls -1 ~/Downloads/*.doc | wc -l)"
 PKGCOUNT="$(ls -1 ~/Downloads/*.pkg | wc -l)"
 CSVCOUNT="$(ls -1 ~/Downloads/*.csv | wc -l)"
+PNGCOUNT="$(ls -1 ~/Downloads/*.png | wc -l)"
+JPGCOUNT="$(ls -1 ~/Downloads/*.jpg | wc -l)"
 
 #CREATE PATH TO FOLDERS
 mp4folder=~/Movies/MP4/
@@ -32,14 +35,17 @@ dmgfolder=~/DMG/
 zipfolder=~/ZIP/
 pdffolder=~/Documents/PDF/
 giffolder=~/Documents/GIF/
-jpgfolder=~/Documents/JPGEG/
+jpegfolder=~/Documents/JPEG/
 xlsxfolder=~/Documents/EXCEL/
+xlsfolder=~/Documents/EXCEL/
 pptfolder=~/Documents/POWERPOINT/
 pptxfolder=~/Documents/POWERPOINT/
 docxfolder=~/Documents/DOCS/
 docfolder=~/Documents/DOCS/
 pkgfolder=~/PKG/
 csvfolder=~/CSV/
+pngfolder=~/Documents/PNG/
+jpgfolder=~/Documents/JPEG/
 
 function  makeFolder(){
    if [[ ! -e $1 ]]; then
@@ -75,13 +81,16 @@ makeFolder $dmgfolder
 makeFolder $zipfolder
 makeFolder $pdffolder
 makeFolder $giffolder
-makeFolder $jpgfolder
+makeFolder $jpegfolder
 makeFolder $xlsxfolder
+makeFolder $xlsfolder
 makeFolder $pptfolder
 makeFolder $pptxfolder
 makeFolder $docxfolder
 makeFolder $pkgfolder
 makeFolder $csvfolder
+makeFolder $pngfolder
+makeFolder $jpgfolder
 
 doWork $MP4COUNT mp4 $mp4folder 
 doWork $WEBMCOUNT webm $webmfolder 
@@ -91,11 +100,14 @@ doWork $DMGCOUNT dmg $dmgfolder
 doWork $ZIPCOUNT zip $zipfolder
 doWork $PDFCOUNT pdf $pdffolder 
 doWork $GIFCOUNT gif $giffolder 
-doWork $JPGCOUNT jpg $jpgfolder 
+doWork $JPEGCOUNT jpeg $jpegfolder 
 doWork $XLSXCOUNT xlsx $xlsxfolder 
+doWork $XLSCOUNT xls $xlsfolder 
 doWork $PPTXCOUNT pptx $pptxfolder 
 doWork $PPTCOUNT ppt $pptfolder 
 doWork $DOCXCOUNT docx $docxfolder 
 doWork $DOCCOUNT doc $docxfolder 
 doWork $PKGCOUNT pkg $pkgfolder 
 doWork $CSVCOUNT csv $csvfolder 
+doWork $PNGCOUNT png $pngfolder 
+doWork $JPGCOUNT jpg $jpgfolder 
