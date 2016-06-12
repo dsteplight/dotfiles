@@ -16,8 +16,12 @@ PDFCOUNT="$(ls -1 ~/Downloads/*.pdf | wc -l)"
 GIFCOUNT="$(ls -1 ~/Downloads/*.gif | wc -l)"
 JPGCOUNT="$(ls -1 ~/Downloads/*.jpg | wc -l)"
 XLSXCOUNT="$(ls -1 ~/Downloads/*.xlsx | wc -l)"
-PPTOUNT="$(ls -1 ~/Downloads/*.ppt | wc -l)"
+PPTCOUNT="$(ls -1 ~/Downloads/*.ppt | wc -l)"
 PPTXCOUNT="$(ls -1 ~/Downloads/*.pptx | wc -l)"
+DOCXCOUNT="$(ls -1 ~/Downloads/*.docx | wc -l)"
+DOCCOUNT="$(ls -1 ~/Downloads/*.doc | wc -l)"
+PKGCOUNT="$(ls -1 ~/Downloads/*.pkg | wc -l)"
+CSVCOUNT="$(ls -1 ~/Downloads/*.csv | wc -l)"
 
 #CREATE PATH TO FOLDERS
 mp4folder=~/Movies/MP4/
@@ -32,6 +36,10 @@ jpgfolder=~/Documents/JPGEG/
 xlsxfolder=~/Documents/EXCEL/
 pptfolder=~/Documents/POWERPOINT/
 pptxfolder=~/Documents/POWERPOINT/
+docxfolder=~/Documents/DOCS/
+docfolder=~/Documents/DOCS/
+pkgfolder=~/PKG/
+csvfolder=~/CSV/
 
 function  makeFolder(){
    if [[ ! -e $1 ]]; then
@@ -68,8 +76,12 @@ makeFolder $zipfolder
 makeFolder $pdffolder
 makeFolder $giffolder
 makeFolder $jpgfolder
-makeFolder $pptxfolder
 makeFolder $xlsxfolder
+makeFolder $pptfolder
+makeFolder $pptxfolder
+makeFolder $docxfolder
+makeFolder $pkgfolder
+makeFolder $csvfolder
 
 doWork $MP4COUNT mp4 $mp4folder 
 doWork $WEBMCOUNT webm $webmfolder 
@@ -80,5 +92,10 @@ doWork $ZIPCOUNT zip $zipfolder
 doWork $PDFCOUNT pdf $pdffolder 
 doWork $GIFCOUNT gif $giffolder 
 doWork $JPGCOUNT jpg $jpgfolder 
-doWork $PPTXCOUNT pptx $pptxfolder 
 doWork $XLSXCOUNT xlsx $xlsxfolder 
+doWork $PPTXCOUNT pptx $pptxfolder 
+doWork $PPTCOUNT ppt $pptfolder 
+doWork $DOCXCOUNT docx $docxfolder 
+doWork $DOCCOUNT doc $docxfolder 
+doWork $PKGCOUNT pkg $pkgfolder 
+doWork $CSVCOUNT csv $csvfolder 
