@@ -1,9 +1,10 @@
 #!/bin/bash
-# An example of using the expr command var1=10
+exec 1> >(logger -s -t $(basename $0)) 2>&1
 
-
-
-
+# handle referencing undefined variables 
+# handle ignoring failing commands
+set -o nounset
+set -o errexit
 
 #COUNT THE  NUMBER OF FILES
 MP4COUNT="$(ls -1 ~/Downloads/*.mp4 | wc -l)"
@@ -25,6 +26,7 @@ PKGCOUNT="$(ls -1 ~/Downloads/*.pkg | wc -l)"
 CSVCOUNT="$(ls -1 ~/Downloads/*.csv | wc -l)"
 PNGCOUNT="$(ls -1 ~/Downloads/*.png | wc -l)"
 JPGCOUNT="$(ls -1 ~/Downloads/*.jpg | wc -l)"
+TXTCOUNT="$(ls -1 ~/Downloads/*.txt | wc -l)"
 
 #CREATE PATH TO FOLDERS
 mp4folder=~/Movies/MP4/
@@ -46,6 +48,7 @@ pkgfolder=~/PKG/
 csvfolder=~/CSV/
 pngfolder=~/Documents/PNG/
 jpgfolder=~/Documents/JPEG/
+txtfolder=~/Documents/TXT/
 
 function  makeFolder(){
    if [[ ! -e $1 ]]; then
@@ -91,6 +94,7 @@ makeFolder $pkgfolder
 makeFolder $csvfolder
 makeFolder $pngfolder
 makeFolder $jpgfolder
+makeFolder $txtfolder
 
 doWork $MP4COUNT mp4 $mp4folder 
 doWork $WEBMCOUNT webm $webmfolder 
@@ -111,3 +115,4 @@ doWork $PKGCOUNT pkg $pkgfolder
 doWork $CSVCOUNT csv $csvfolder 
 doWork $PNGCOUNT png $pngfolder 
 doWork $JPGCOUNT jpg $jpgfolder 
+doWork $TXTCOUNT txt $txtfolder 
